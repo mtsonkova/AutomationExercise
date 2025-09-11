@@ -1,4 +1,4 @@
-[
+
     {
     "fullName": "Samantha Green",
     "email": "samgreen@test.qa",
@@ -19,11 +19,8 @@
         "city": "Miami",
         "zipcode": "33101",
         "mobileNumber": "555-0555-555"
-        }
-    }
-
-
-    
+        },
+        
     "paymentMethod" :{
     "cardholderName": "Samatntha Green",
     "cardnumber": "4111111111111111",
@@ -32,4 +29,3 @@
     "expirationYear": 2028
 }
 }
-]
