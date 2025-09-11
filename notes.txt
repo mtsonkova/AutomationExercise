@@ -1,7 +1,7 @@
-Task 1: Validate User Registration Process
+Task 1: Validate User Registration Process  => UI
 
 
-Objective: Test the user registration flow.
+Objective: Test the user registration flow. 
 
 Steps:
 
@@ -19,14 +19,14 @@ Expected Output:
     The user should be successfully registered.
     The success message ("Account Created!") should be visible.
 
-Task 2: Search and Add a Product to Cart
+Task 2: Search and Add a Product to Cart: => UI
 
 Objective: Test the search functionality and cart behavior.
 
 Steps:
 
     Navigate to the website.
-    Use the search bar to search for a specific product (e.g., "T-shirt").
+    Use the search bar to search for a specific product (e.g., "T-shirt"). // Search bar is visible on products page
     Verify that relevant search results are displayed.
     Click on a product and add it to the cart.
     Navigate to the cart page and verify:
@@ -39,7 +39,7 @@ Expected Output:
     The product added to the cart should match the selected product.
     The cart details should reflect the correct information.
 
-Task 3: Test Login and Logout Functionality
+Task 3: Test Login and Logout Functionality => UI
 
 Objective: Validate the login and logout processes.
 
@@ -81,6 +81,7 @@ await expect(emailInput).toHaveJSProperty('validationMessage', 'Please fill out 
 // POST To Verify Login with valid details
 // Post to verify login with invalid details
 // POST to Create/Register User Account
+// POST to Search product endpoint
 // DELETE METHOD TO DELETE USER ACCOUNT
 
 
