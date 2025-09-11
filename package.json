@@ -1,0 +1,23 @@
+{
+  "name": "automationexercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtsonkova/AutomationExercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mtsonkova/AutomationExercise/issues"
+  },
+  "homepage": "https://github.com/mtsonkova/AutomationExercise#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.1"
+  }
+}
