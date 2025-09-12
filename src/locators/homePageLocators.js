@@ -6,7 +6,8 @@ export const HomePageLocators = (page) => ({
         signupLogin: page.getByRole('link', {name: /Signup \/ Login/}),
         logout: page.getByRole('link', {name: /Logout/}),
         deleteAccount: page.getByRole('link', {name: /Delete Account/}),
-        loggedInAs: page.getByRole('link', {name:/Logged in as/}),
+        //loggedInAs: page.getByRole('link', {name: /Logged in as/}),
+        loggedInAs: page.locator('#header ul li').last().locator('a'),
     },
     //TODO category locators
     //TODO brands locators

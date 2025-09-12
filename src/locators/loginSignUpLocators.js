@@ -3,6 +3,7 @@ loginForm: {
     email: page.locator('[data-qa="login-email"]'),
     password: page.locator('[data-qa="login-password"]'),
     loginBtn: page.locator('[data-qa="login-button"]'),
+    errorMsg: page.locator('div.login-form p'),
 },
 
 registerForm: {

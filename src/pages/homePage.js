@@ -6,7 +6,8 @@ export class HomePage{
     }
 
     async getLoggedInUserName() {
-        return loggedInUserName = await this.homePageLocators.mainMenu.loggedInAs.textContent();
+        //await this.homePageLocators.mainMenu.loggedInAs.click();
+        return await this.homePageLocators.mainMenu.loggedInAs.textContent();
     } 
 
     async checkLogoutVisibiliy() {
