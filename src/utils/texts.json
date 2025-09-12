@@ -7,5 +7,10 @@
         "accountCreatedTitle" : "Account Created!",
         "congratulations": "Congratulations! Your new account has been successfully created!",
         "accountBenefits": "You can now take advantage of member privileges to enhance your online shopping experience with us."
+    },
+
+    "placedOrder": {
+        "placedOrderTitle": "Order Placed!",
+        "congratulations": "Congratulations! Your order has been confirmed!"
     }
 }
