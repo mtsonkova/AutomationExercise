@@ -1,7 +1,10 @@
 {
-    "errorMsg" : {
+    "emptyFieldErrorMsg" : {
         "emptyField" : "Please fill out this field."
     },
+
+    
+    "wrongCredentials": "Your email or password is incorrect!",
 
     "accountCreatd": {
         "accountCreatedTitle" : "Account Created!",

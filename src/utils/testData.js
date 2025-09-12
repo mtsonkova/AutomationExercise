@@ -10,7 +10,7 @@
         firstName: "Test",
         lastName: "User",
     }
-    export const password =  "Test_P@$$1";
+    export const defaultPassword =  "Test_P@$$1";
     
     export const defaultTitle = "Mrs";
 
