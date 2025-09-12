@@ -1,5 +1,11 @@
 {
     "errorMsg" : {
         "emptyField" : "Please fill out this field."
+    },
+
+    "accountCreatd": {
+        "accountCreatedTitle" : "Account Created!",
+        "congratulations": "Congratulations! Your new account has been successfully created!",
+        "accountBenefits": "You can now take advantage of member privileges to enhance your online shopping experience with us."
     }
 }
