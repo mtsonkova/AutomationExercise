@@ -1,4 +1,4 @@
-export const loginSignUpLocators = (page) => ({
+export const LoginSignUpLocators = (page) => ({
 loginForm: {
     email: page.locator('[data-qa="login-email"]'),
     password: page.locator('[data-qa="login-password"]'),

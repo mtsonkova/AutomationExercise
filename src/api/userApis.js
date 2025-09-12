@@ -10,7 +10,7 @@ export async function loginApi(request) {
     userEmail = generateRandomEmail();
 
     userData = {
-        email: userEmail,
+        email: defaultUser.email,
         password: defaultPassword,
     }
   try {

@@ -73,16 +73,8 @@ Expected Output:
 
 
 
-const emailInput = page.locator('[data-qa="login-email"]');
-
 // Assert that the input is invalid (which triggers the tooltip)
 await expect(emailInput).toHaveJSProperty('validationMessage', 'Please fill out this field.');
-
-// POST To Verify Login with valid details
-// Post to verify login with invalid details
-// POST to Create/Register User Account
-// POST to Search product endpoint
-// DELETE METHOD TO DELETE USER ACCOUNT
 
 
 login -> UI
