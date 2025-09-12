@@ -1,4 +1,4 @@
-import {defaultUser, testUser, defaultPassword, defaultTitle, dateOfBirth, addressInformation} from '../src/utils/testData';
+import {defaultUser, defaultPassword} from '../src/utils/testData';
 import { CookieConsentHelper } from '../src/helpers/cookieConsentHelper';
 import texts from '../src/utils/texts.json'  with { type: 'json' };
 import { generateRandomEmail } from '../src/utils/emailUtils';
