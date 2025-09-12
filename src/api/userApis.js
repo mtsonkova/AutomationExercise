@@ -1,13 +1,17 @@
-// login
+import {defaultUser, testUser, defaultPassword, defaultTitle, dateOfBirth, addressInformation} from '../utils/testData';
+import { generateRandomEmail } from '../utils/emailUtils';
+
 let url;
 let userData;
+let userEmail;
 
-
-export async function loginApi(request, email, password) {
+export async function loginApi(request) {
     url = 'https://automationexercise.com/api/verifyLogin';
+    userEmail = generateRandomEmail();
+
     userData = {
-        email: '',
-        password: '',
+        email: userEmail,
+        password: defaultPassword,
     }
   try {
     const response = await request.post(url, {
@@ -35,34 +39,33 @@ export async function loginApi(request, email, password) {
   }
 }
 
-// register
-
-// utils/apiCreateAccount.js
 export async function registerApi(request) {
+    url = 'https://automationexercise.com/api/createAccount',
+    userEmail = generateRandomEmail();
   // Build the request payload OUTSIDE try/catch
   userData = {
     // import the userValues from createRandomEmail and testData
-    name: userValues.name,
-    email: userValues.email,
-    password: userValues.password,
-    title: userValues.title,
-    birth_date: userValues.birth_date,
-    birth_month: userValues.birth_month,
-    birth_year: userValues.birth_year,
-    firstname: userValues.firstname,
-    lastname: userValues.lastname,
-    company: userValues.company,
-    address1: userValues.address1,
-    address2: userValues.address2,
-    country: userValues.country,
-    zipcode: userValues.zipcode,
-    state: userValues.state,
-    city: userValues.city,
-    mobile_number: userValues.mobile_number
+    name: testUser.fullName,
+    email: userEmail,
+    password: defaultPassword,
+    title: defaultTitle,
+    birth_date: dateOfBirth.birth_date,
+    birth_month: dateOfBirth.birth_month,
+    birth_year: dateOfBirth.birth_year,
+    firstname: testUser.firstName,
+    lastname: testUser.lastName,
+    company: '',
+    address1: addressInformation.address,
+    address2: '',
+    country: addressInformation.country,
+    zipcode: addressInformation.zipcode,
+    state: addressInformation.state,
+    city: addressInformation.city,
+    mobile_number: addressInformation.mobileNumber
   };
 
   try {
-    const response = await request.post('https://automationexercise.com/api/createAccount', {
+    const response = await request.post(url, {
       form: userData
     });
 
@@ -90,15 +93,16 @@ export async function registerApi(request) {
 // delete account
 
 // utils/apiDeleteAccount.js
-export async function apiDeleteAccount(request, userValues) {
+export async function apiDeleteAccount(request, userEmail) {
   // Build payload outside try/catch
+  url = 'https://automationexercise.com/api/deleteAccount';
   const userData = {
-    email: userValues.email,
-    password: userValues.password
+    email: userEmail,
+    password: defaultPassword,
   };
 
   try {
-    const response = await request.post('https://automationexercise.com/api/deleteAccount', {
+    const response = await request.post(url, {
       form: userData
     });
 

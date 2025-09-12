@@ -12,13 +12,6 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "imports": {
-    "@/*": "./src/*",
-    "@/api/*": "./src/api/*",
-    "@/locators/*": "./src/locators/*",
-    "@/pages/*": "./src/pages/*",
-    "@/utils/*": "./src/utils/*"
-  },
   "bugs": {
     "url": "https://github.com/mtsonkova/AutomationExercise/issues"
   },
