@@ -24,7 +24,7 @@ export const RegistrationFormLocators = (page) => ({
             state: page.locator('[data-qa="state"]'),
             city: page.locator('[data-qa="city"]'),
             zipCode: page.locator('[data-qa="zipcode"]'),
-            moibileNumber:page.locator('[data-qa="mobile_number"]'),
+            mobileNumber:page.locator('[data-qa="mobile_number"]'),
         },
         optional: {
             company: page.locator('[data-qa="company"]'),

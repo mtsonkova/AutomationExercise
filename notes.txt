@@ -39,7 +39,9 @@ Expected Output:
     The product added to the cart should match the selected product.
     The cart details should reflect the correct information.
 
-Task 3: Test Login and Logout Functionality => UI
+
+/////////////////////////////////////////// DONE ///////////////////////////////////////
+Task 3: Test Login and Logout Functionality => UI 
 
 Objective: Validate the login and logout processes.
 

@@ -15,9 +15,9 @@
     export const defaultTitle = "Mrs";
 
     export const dateOfBirth = {
-        "birthDate": 24, 
+        "birthDate": "24", 
         "birthMonth": "September",
-        "birthYear": 1980
+        "birthYear": "1980"
     };
 
     export const addressInformation = {

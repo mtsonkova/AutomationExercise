@@ -10,6 +10,7 @@ registerForm: {
     name: page.locator('[data-qa="signup-name"]'),
     email: page.locator('[data-qa="signup-email"]'),
     signUpBtn: page.locator('[data-qa="signup-button"]'),
+    errorMsg: page.locator('div.signup-form p'),
 }
 
 })

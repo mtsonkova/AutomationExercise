@@ -1,12 +1,12 @@
 import {LoginSignUpLocators} from '../locators/loginSignUpLocators';
-import { HomePage } from '../pages/homePage';
+import { HomePage } from './homePage';
 import {expect} from '@playwright/test';
 
-export class LoginPage extends HomePage{
+export class LoginSignUpPage extends HomePage{
     constructor(page) {
         super(page);
         this.page = page;
-        this.loginSignupLocators = LoginSignUpLocators(page);
+        this.loginSignUpLocators = LoginSignUpLocators(page);
         this.homePage = new HomePage(page)
     };
 
@@ -25,4 +25,13 @@ export class LoginPage extends HomePage{
     async getWrongCredentialsError() {
         return this.loginSignupLocators.loginForm.errorMsg.textContent();
     }
+
+    async goToRegistrationForm(fullName, userEmail) {
+        await this.loginSignUpLocators.registerForm.name.fill(fullName);
+        await this.loginSignUpLocators.registerForm.email.fill(userEmail);
+        await this.loginSignUpLocators.registerForm.signUpBtn.click();
+}
+async getEmailExistsErrMsg() {
+    return this.loginSignUpLocators.registerForm.errorMsg.textContent();
+}
 }

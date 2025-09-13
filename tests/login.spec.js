@@ -3,19 +3,19 @@ import { CookieConsentHelper } from '../src/helpers/cookieConsentHelper';
 import {registerApi, deleteAccountApi} from '../src/api/userApis';
 import texts from '../src/utils/texts.json'  with { type: 'json' };
 import { generateRandomEmail } from '../src/utils/emailUtils';
-import { LoginPage } from '../src/pages/loginPage';
+import { LoginSignUpPage } from '../src/pages/loginSignUpPage';
 import { HomePage } from '../src/pages/homePage';
 
 import {test, expect} from '@playwright/test';
 
 test.describe('Login and log out functionality', () => {
 let email;
-let loginPage;
+let loginSignUpPage;
 let homePage;
 
 
 test.beforeEach('Initial setup', async({page}) => {
-    loginPage = new LoginPage(page);
+    loginSignUpPage = new LoginSignUpPage(page);
     homePage = new HomePage(page);
     await page.goto('/');
   await CookieConsentHelper.handleConsent(page);
@@ -25,9 +25,9 @@ test.beforeEach('Initial setup', async({page}) => {
 
 test('Login with valid credentials and log out', async() => {
     await test.step('Lotin with valid credentials', async() => {
-         await loginPage.login(defaultUser.email, defaultPassword);
+         await loginSignUpPage.login(defaultUser.email, defaultPassword);
         let loggedInUserData = await homePage.getLoggedInUserName();
-        await loginPage.checkLoginState();
+        await loginSignUpPage.checkLoginState();
         expect(loggedInUserData).toContain(defaultUser.fullName);
         
     });
@@ -41,8 +41,8 @@ test('Login with valid credentials and log out', async() => {
 
 test('Login with wrong credentials should throw error', async() => {
     email = generateRandomEmail();
-    await loginPage.login(email, defaultPassword);
-    let errorMsg = await loginPage.getWrongCredentialsError();
+    await loginSignUpPage.login(email, defaultPassword);
+    let errorMsg = await loginSignUpPage.getWrongCredentialsError();
     expect(errorMsg).toBe(texts.wrongCredentials);
 });
 
@@ -53,7 +53,7 @@ test('Login with deleted user should throw an error', async({request}) => {
     await registerApi(request, email);
 });
   await test.step('Login with newly created user', async()=> {
-    await loginPage.login(email, defaultPassword);
+    await loginSignUpPage.login(email, defaultPassword);
     let loggedInUserData = await homePage.getLoggedInUserName();
       expect(loggedInUserData).toContain(testUser.fullName);
   });
@@ -67,8 +67,8 @@ test('Login with deleted user should throw an error', async({request}) => {
   })
 
   await test.step('Attempt to login with deleted user', async() => {
-    await loginPage.login(email, defaultPassword);
-     let errorMsg = await loginPage.getWrongCredentialsError();
+    await loginSignUpPage.login(email, defaultPassword);
+     let errorMsg = await loginSignUpPage.getWrongCredentialsError();
     expect(errorMsg).toBe(texts.wrongCredentials);
   })
 })
