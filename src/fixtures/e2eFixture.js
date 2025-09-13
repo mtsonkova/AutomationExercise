@@ -1,15 +1,13 @@
-import { test as base, expect } from '@playwright/test';
-import { CookieConsentHelper } from '../src/helpers/cookieConsentHelper';
-import { LoginSignUpPage } from '../src/pages/loginSignUpPage';
-import { HomePage } from '../src/pages/homePage';
-import { ProductsPage } from '../src/pages/productsPage';
-import { ProductInfoPage } from '../src/pages/productInfoPage';
-import { CartPage } from '../src/pages/cartPage';
-import { CheckoutPage } from '../src/pages/checkoutPage';
-import { PaymentPage } from '../src/pages/paymentPage';
-import { PlacedOrderPage } from '../src/pages/placedOrderPage';
-import texts from '../src/utils/texts.json';
-import { defaultUser, defaultPassword } from '../src/utils/testData';
+import { test as base } from '@playwright/test';
+
+import { LoginSignUpPage } from '../pages/loginSignUpPage';
+import { HomePage } from '../pages/homePage';
+import { ProductsPage } from '../pages/productsPage';
+import { ProductInfoPage } from '../pages/productInfoPage';
+import { CartPage } from '../pages/cartPage';
+import { CheckoutPage } from '../pages/checkoutPage';
+import { PaymentPage } from '../pages/paymentPage';
+import { PlacedOrderPage } from '../pages/placedOrderPage';
 
 // Extend base test with our pages
 export const test = base.extend({
