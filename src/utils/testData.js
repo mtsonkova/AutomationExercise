@@ -34,7 +34,7 @@
     export const paymentMethod = {
     cardNumber: "4111111111111111",
     cvc: "111",
-    expirationMonth: 12,
-    expirationYear: 2028
+    expirationMonth: "12",
+    expirationYear: "2028"
 };
 

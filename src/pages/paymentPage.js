@@ -12,7 +12,7 @@ export class PaymentPage {
         await this.paymentLocators.cardNumber.fill(paymentMethod.cardNumber);
         await this.paymentLocators.cvc.fill(paymentMethod.cvc);
         await this.paymentLocators.month.fill(paymentMethod.expirationMonth);
-        await this.paymentLocators.year.fill(paymentMethod.year);
+        await this.paymentLocators.year.fill(paymentMethod.expirationYear);
       
     }
 
