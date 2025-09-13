@@ -24,7 +24,8 @@ export class CartPage {
     }
 
     async getCartProductQty(index) {
-        return await this.cartLocators.productQty.nth(index).textContent();
+        let qty =  await this.cartLocators.productQty.nth(index).textContent();
+        return Number(qty);
     }
     
     async getCartProductTotalPrice(index) {

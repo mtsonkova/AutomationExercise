@@ -47,6 +47,46 @@ test('As Guest user add product to cart from products page', async () => {
     expect(await page.url()).toBe('https://www.automationexercise.com/login');
     });
     
+test('As Guest user add product to cart from product info page', async () => {
+    let productName;
+    let productCategory;
+    let productPrice;
+    let productQty = '3';
+
+    await test.step('Search for products', async () => {
+        await homePage.goToProducts();
+        await productsPage.searchForProduct(existingProduct);
+        await productsPage.getAllFoundProducts();
+        await homePage.clickOnViewProduct(1);
+    });
+
+    await test.step('View product details', async() => {
+        productName = await productInfoPage.getProductName();
+        productCategory = await productInfoPage.getProductCategory();
+        productPrice = await productInfoPage.getProductPrice();
+    });
+
+    await test.step('Add product to cart', async() => {
+        await productInfoPage.changeProductQty(productQty);
+        await productInfoPage.clickAddToCart();
+        await homePage.clickOnViewCart();
+    });
+
+    await test.step('Verify product information in cart', async() => {
+        let cartProductName = await cartPage.getCartProuctName(0);
+        let cartProductCategory = await cartPage.getCartProductCategory(0);
+        let cartProductPrice = await cartPage.getCartSingleItemPrice(0);
+        let cartProductQty = await cartPage.getCartProductQty(0);
+        let cartProductTotal = await cartPage.getCartProductTotalPrice(0);
+
+        expect(cartProductName).toBe(productName);
+        expect(productCategory).toContain(cartProductCategory);
+        expect(cartProductPrice).toBe(productPrice);
+        expect(cartProductQty).toBe(Number(productQty));
+        expect(cartProductTotal).toBe(cartProductQty * cartProductPrice);
+    });    
+
+    });
     
 
 })

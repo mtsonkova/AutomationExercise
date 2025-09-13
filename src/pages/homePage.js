@@ -36,8 +36,8 @@ export class HomePage{
         await this.homePageLocators.cartModal.viewCart.click();
     }
 
-    async clickOnViewProduct(){
-        await this.homePageLocators.viewProduct.click();
+    async clickOnViewProduct(index){
+        await this.homePageLocators.viewProduct.nth(index).click();
     }
 
   async getAllProducts() {
