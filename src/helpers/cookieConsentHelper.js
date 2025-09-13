@@ -1,11 +1,11 @@
 export class CookieConsentHelper {
   static async handleConsent(page) {
-    try {
-      await page.waitForSelector('button:has-text("Consent")', { timeout: 2000 });
-      await page.click('button:has-text("Consent")');
+    const consentButton = page.locator('button:has-text("Consent")');
+
+    if (await consentButton.isVisible()) {
+      await consentButton.click();
       await page.waitForSelector('[data-testid="cookie-banner"]', { state: 'hidden' });
-    } catch (error) {
-      // No banner appeared or already handled
     }
+    // If not visible, just continue with test execution
   }
 }

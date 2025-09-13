@@ -1,4 +1,5 @@
-import { HomePageLocators } from "../locators/homePageLocators";
+import { HomePageLocators } from '../locators/homePageLocators';
+import {expect} from '@playwright/test';
 export class HomePage{
     constructor(page) {
         this.page = page;
@@ -10,15 +11,14 @@ export class HomePage{
         return await this.homePageLocators.mainMenu.loggedInAs.textContent();
     } 
 
-    async checkLogoutVisibiliy() {
-        return this.homePageLocators.mainMenu.logout.isVisible();
-    }
-
-    async checkLoginRegisterVisibility() {
-        return this.homePageLocators.mainMenu.signupLogin.isVisible();
-    }
+  
 
     async logout() {
-        await this.homePageLocators.mainMenu.logout.click();
+        await this.homePageLocators.mainMenu.logout.click();        
+    }
+
+    async checkLogoutState() {
+        await expect(this.homePageLocators.mainMenu.signupLogin).toBeVisible();
+        await expect(this.homePageLocators.mainMenu.logout).not.toBeVisible();
     }
 }

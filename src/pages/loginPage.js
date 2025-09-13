@@ -17,6 +17,11 @@ export class LoginPage extends HomePage{
         await this.loginSignupLocators.loginForm.loginBtn.click();
     }
 
+    async checkLoginState(){
+        await expect(this.homePageLocators.mainMenu.signupLogin).not.toBeVisible();
+        await expect(this.homePageLocators.mainMenu.logout).toBeVisible();
+    }
+ 
     async getWrongCredentialsError() {
         return this.loginSignupLocators.loginForm.errorMsg.textContent();
     }

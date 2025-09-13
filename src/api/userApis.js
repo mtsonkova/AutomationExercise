@@ -1,16 +1,14 @@
-import {defaultUser, testUser, defaultPassword, defaultTitle, dateOfBirth, addressInformation} from '../utils/testData';
+import {testUser, defaultPassword, defaultTitle, dateOfBirth, addressInformation} from '../utils/testData';
 import { generateRandomEmail } from '../utils/emailUtils';
 
 let url;
 let userData;
-let userEmail;
 
-export async function loginApi(request) {
+export async function loginApi(request, userEmail) {
     url = 'https://automationexercise.com/api/verifyLogin';
-    userEmail = generateRandomEmail();
-
+   
     userData = {
-        email: defaultUser.email,
+        email: userEmail,
         password: defaultPassword,
     }
   try {
@@ -39,9 +37,9 @@ export async function loginApi(request) {
   }
 }
 
-export async function registerApi(request) {
+export async function registerApi(request, userEmail) {
     url = 'https://automationexercise.com/api/createAccount',
-    userEmail = generateRandomEmail();
+  
   // Build the request payload OUTSIDE try/catch
   userData = {
     // import the userValues from createRandomEmail and testData
@@ -93,7 +91,7 @@ export async function registerApi(request) {
 // delete account
 
 // utils/apiDeleteAccount.js
-export async function apiDeleteAccount(request, userEmail) {
+export async function deleteAccountApi(request, userEmail) {
   // Build payload outside try/catch
   url = 'https://automationexercise.com/api/deleteAccount';
   const userData = {
@@ -102,7 +100,7 @@ export async function apiDeleteAccount(request, userEmail) {
   };
 
   try {
-    const response = await request.post(url, {
+    const response = await request.delete(url, {
       form: userData
     });
 
