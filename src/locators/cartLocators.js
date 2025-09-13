@@ -1,5 +1,5 @@
 export const CartLocators = (page) => ({
-proceedToCheckoutBtn: page.getByRole('link', {name: 'Proceed To Checkout'}),
+proceedToCheckoutBtn: page.locator('div.col-sm-6 a').first(),
 productsTable: page.locator('#cart_info_table'),
 itemImage: page.locator('tbody td.cart_product a'),
 productName: page.locator('tbody td.cart_description h4 a'),
@@ -9,4 +9,8 @@ productQty: page.locator('tbody td.cart_quantity button'),
 productTotal:page.locator('tbody td.cart_total p'),
 deleteProduct: page.locator('tbody td.cart_delete a'),
 emptyCartMsg: page.locator('#empty_cart p b'),
+checkoutModal: {
+    loginRegisterLink: page.locator('.modal-body p a'),
+    continueOnCartBtn: page.locator('.modal-footer button'),
+},
 });

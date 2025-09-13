@@ -2,7 +2,7 @@ import {HomePage} from '../pages/homePage';
 import{ProductInfoLocators} from '../locators/productInfoLocators';
 import {convertStringPriceToNumber} from '../utils/priceUtils';
 
-export class ProductsPage extends HomePage {
+export class ProductInfoPage extends HomePage {
     constructor(page){
         super(page);
         this.page = page;

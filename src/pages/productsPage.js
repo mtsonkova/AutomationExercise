@@ -11,11 +11,17 @@ export class ProductsPage extends HomePage {
     async goToProductsPage() {
         await this.homePageLocators.mainMenu.products.click();
     }
-    
+
     async searchForProduct(productName) {
         await this.productsPageLocators.searchBox.fill(productName);
         await this.productsPageLocators.searchBtn.click();
     }
+
+    async getAllFoundProducts() {
+        return this.productsPageLocators.searchResult.all();
+    }
+
+   
 
 
 }

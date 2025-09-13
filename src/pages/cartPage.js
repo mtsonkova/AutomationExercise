@@ -35,4 +35,9 @@ export class CartPage {
     async clickOnProceedToCheckout() {
         await this.cartLocators.proceedToCheckoutBtn.click();
     }
+
+    async clickOnLoginRegisterCartModal() {
+        await this.cartLocators.checkoutModal.loginRegisterLink.waitFor({state: 'visible'});
+        await this.cartLocators.checkoutModal.loginRegisterLink.click();
+    }
 }

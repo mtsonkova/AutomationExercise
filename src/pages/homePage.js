@@ -28,11 +28,7 @@ export class HomePage{
         await expect(this.homePageLocators.mainMenu.logout).not.toBeVisible();
     }
 
-    async clickOnAddToCart() {
-        await this.homePageLocators.addToCartBtn.click();
-    }
-
-    async clickContinueShoppingOnCartModal() {
+    async clickContinueShopping() {
         await this.homePageLocators.cartModal.continueShoppingBtn.click();
     }
 
@@ -53,13 +49,10 @@ export class HomePage{
 
   return products;
 }
+async addFirstProductToCart() {
+   await this.homePageLocators.featuresItems.first().hover();
+   await this.homePageLocators.addToCartBtn.first().click();
 
-    async getProductName(index) {
-        return await this.homePageLocators.productName.nth(index).textContent();
-    }
-
-    async getProductPrice(index) {
-        let priceAsText = await this.homePageLocators.productPrice.nth(index).textContent();
-        return convertStringPriceToNumber(priceAsText);
-    }
+}
+  
 }
