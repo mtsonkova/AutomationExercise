@@ -8,4 +8,5 @@ productPrice: page.locator('tbody td.cart_price p'),
 productQty: page.locator('tbody td.cart_quantity button'),
 productTotal:page.locator('tbody td.cart_total p'),
 deleteProduct: page.locator('tbody td.cart_delete a'),
+emptyCartMsg: page.locator('#empty_cart p b'),
 });

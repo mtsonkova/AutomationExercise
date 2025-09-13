@@ -63,21 +63,3 @@ Expected Output:
     The user should be logged in successfully with the username displayed.
     After logging out, the user should be redirected to the homepage, and the "Signup / Login" link should appear.
 
-
-
-
-    Will pay attention to 
-1. POM
-2. Error handling
-3. Positive flow
-4. Negative flow
-5. Error handling
-
-
-
-// Assert that the input is invalid (which triggers the tooltip)
-await expect(emailInput).toHaveJSProperty('validationMessage', 'Please fill out this field.');
-
-
-login -> UI
-register -> API

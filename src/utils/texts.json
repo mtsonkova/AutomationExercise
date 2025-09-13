@@ -1,9 +1,4 @@
 {
-    "emptyFieldErrorMsg" : {
-        "emptyField" : "Please fill out this field."
-    },
-
-    
     "wrongCredentials": "Your email or password is incorrect!",
 
     "accountCreated": {
@@ -16,6 +11,7 @@
         "placedOrderTitle": "Order Placed!",
         "congratulations": "Congratulations! Your order has been confirmed!"
     },
-     "emailExistsErr": "Email Address already exist!"
+     "emailExistsErr": "Email Address already exist!",
+     "emptyCart": "Cart is empty!"
 
 }

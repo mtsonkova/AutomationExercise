@@ -64,7 +64,6 @@ test("Sign up with existing user", async() => {
   let errMsg = await loginSignUpPage.getEmailExistsErrMsg();
   expect(errMsg).toBe(texts.emailExistsErr);
  
-})
-
+});
 
 });

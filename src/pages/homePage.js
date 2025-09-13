@@ -1,17 +1,23 @@
 import { HomePageLocators } from '../locators/homePageLocators';
 import {expect} from '@playwright/test';
+import {convertStringPriceToNumber} from '../utils/priceUtils';
 export class HomePage{
     constructor(page) {
         this.page = page;
         this.homePageLocators = HomePageLocators(page);
     }
 
-    async getLoggedInUserName() {
-        //await this.homePageLocators.mainMenu.loggedInAs.click();
-        return await this.homePageLocators.mainMenu.loggedInAs.textContent();
-    } 
+    async goToProducts() {
+        await this.homePageLocators.mainMenu.products.click();
+    }
 
-  
+    async goToCart() {
+        await this.homePageLocators.mainMenu.cart.click();
+
+    }
+    async getLoggedInUserName() {
+        return await this.homePageLocators.mainMenu.loggedInAs.textContent();
+    }   
 
     async logout() {
         await this.homePageLocators.mainMenu.logout.click();        
@@ -20,5 +26,40 @@ export class HomePage{
     async checkLogoutState() {
         await expect(this.homePageLocators.mainMenu.signupLogin).toBeVisible();
         await expect(this.homePageLocators.mainMenu.logout).not.toBeVisible();
+    }
+
+    async clickOnAddToCart() {
+        await this.homePageLocators.addToCartBtn.click();
+    }
+
+    async clickContinueShoppingOnCartModal() {
+        await this.homePageLocators.cartModal.continueShoppingBtn.click();
+    }
+
+    async clickOnViewCart(){
+        await this.homePageLocators.cartModal.viewCart.click();
+    }
+
+    async clickOnViewProduct(){
+        await this.homePageLocators.viewProduct.click();
+    }
+
+  async getAllProducts() {
+  const products = await this.homePageLocators.featuresItems.all();
+  
+  if (!products || products.length === 0) {
+    throw new Error("No products found on the page.");
+  }
+
+  return products;
+}
+
+    async getProductName(index) {
+        return await this.homePageLocators.productName.nth(index).textContent();
+    }
+
+    async getProductPrice(index) {
+        let priceAsText = await this.homePageLocators.productPrice.nth(index).textContent();
+        return convertStringPriceToNumber(priceAsText);
     }
 }
