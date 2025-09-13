@@ -5,12 +5,16 @@ import { HomePage } from '../src/pages/homePage';
 import { ProductsPage } from '../src/pages/productsPage';
 import {ProductInfoPage} from '../src/pages/productInfoPage';
 import {CartPage} from '../src/pages/cartPage';
+import { LoginSignUpPage } from '../src/pages/loginSignUpPage';
 
 test.describe('Shopping functionality tests with guest user - products search, shopping cart behavior', () => {
+
 let homePage;
 let productsPage;
 let productInfoPage;
 let cartPage;
+let loginSignUpPage;
+
 const existingProduct = 'top';
 const nonExistingProduct = 'test_product';
 
@@ -19,6 +23,7 @@ test.beforeEach('Initial setup', async({page}) => {
  productsPage = new ProductsPage(page);
  productInfoPage = new ProductInfoPage(page);
  cartPage = new CartPage(page);
+ loginSignUpPage = new LoginSignUpPage(page);
  await page.goto('/');
  await CookieConsentHelper.handleConsent(page);
 });
@@ -36,6 +41,11 @@ test('Search for non existing product', async() => {
     await expect(homePage.getAllProducts()).rejects.toThrow("No products found");
 });
 
+test('Inspect empty shopping cart', async() => {
+    await homePage.goToCart();
+    let cartMsg = await cartPage.getEmptyCartMsg();
+    expect(cartMsg).toContain(texts.emptyCart)
+})
 test('As Guest user add product to cart from products page', async () => {
     await homePage.goToProducts();
     await productsPage.searchForProduct(existingProduct);
@@ -44,7 +54,8 @@ test('As Guest user add product to cart from products page', async () => {
     await homePage.clickOnViewCart();
     await cartPage.clickOnProceedToCheckout();
     await cartPage.clickOnLoginRegisterCartModal();
-    expect(await page.url()).toBe('https://www.automationexercise.com/login');
+   await loginSignUpPage.checkLoginTitleVisibility();
+   await loginSignUpPage.checkRegisterTitleVisibility();
     });
     
 test('As Guest user add product to cart from product info page', async () => {

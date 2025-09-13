@@ -10,11 +10,19 @@ export class LoginSignUpPage extends HomePage{
         this.homePage = new HomePage(page)
     };
 
+    async checkLoginTitleVisibility() {
+        await expect(this.loginSignUpLocators.loginForm.loginTitle).toBeVisible();
+    }
+
+    async checkRegisterTitleVisibility() {
+        await expect(this.loginSignUpLocators.registerForm.registerTitle).toBeVisible();
+    }
+
      async login(userEmail, pass) {
         await this.homePageLocators.mainMenu.signupLogin.click();
-        await this.loginSignupLocators.loginForm.email.fill(userEmail);
-        await this.loginSignupLocators.loginForm.password.fill(pass);
-        await this.loginSignupLocators.loginForm.loginBtn.click();
+        await this.loginSignUpLocators.loginForm.email.fill(userEmail);
+        await this.loginSignUpLocators.loginForm.password.fill(pass);
+        await this.loginSignUpLocators.loginForm.loginBtn.click();
     }
 
     async checkLoginState(){
@@ -23,7 +31,7 @@ export class LoginSignUpPage extends HomePage{
     }
  
     async getWrongCredentialsError() {
-        return this.loginSignupLocators.loginForm.errorMsg.textContent();
+        return this.loginSignUpLocators.loginForm.errorMsg.textContent();
     }
 
     async goToRegistrationForm(fullName, userEmail) {
