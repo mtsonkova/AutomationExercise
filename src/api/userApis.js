@@ -124,3 +124,20 @@ export async function deleteAccountApi(request, userEmail) {
     return { success: false, error: error.message };
   }
 }
+
+//search product
+// helpers/api.js
+export async function searchProductApi(request, productName) {
+  const response = await request.post('https://automationexercise.com/api/searchProduct', {
+    form: {
+      search_product: productName
+    }
+  });
+
+  if (response.status() !== 200) {
+    throw new Error(`API request failed with status ${response.status()}`);
+  }
+
+  return await response.json();
+}
+

@@ -52,7 +52,11 @@ export class HomePage{
 async addFirstProductToCart() {
    await this.homePageLocators.featuresItems.first().hover();
    await this.homePageLocators.addToCartBtn.first().click();
+}
 
+async addNthProductToCart(index) {
+     await this.homePageLocators.featuresItems.nth(index).hover();
+   await this.homePageLocators.addToCartBtn.nth(index).click();
 }
   
 }

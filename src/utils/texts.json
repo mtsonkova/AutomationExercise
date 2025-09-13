@@ -9,7 +9,7 @@
 
     "placedOrder": {
         "placedOrderTitle": "Order Placed!",
-        "congratulations": "Congratulations! Your order has been confirmed!"
+        "congratulationsMsg": "Congratulations! Your order has been confirmed!"
     },
      "emailExistsErr": "Email Address already exist!",
      "emptyCart": "Cart is empty!"
