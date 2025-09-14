@@ -1,6 +1,6 @@
 import { HomePageLocators } from '../locators/homePageLocators';
 import {expect} from '@playwright/test';
-import {convertStringPriceToNumber} from '../utils/priceUtils';
+
 export class HomePage{
     constructor(page) {
         this.page = page;
@@ -36,9 +36,7 @@ export class HomePage{
         await this.homePageLocators.cartModal.viewCart.click();
     }
 
-    async clickOnViewProduct(index){
-        await this.homePageLocators.viewProduct.nth(index).click();
-    }
+  
 
   async getAllProducts() {
   const products = await this.homePageLocators.featuresItems.all();
@@ -49,14 +47,10 @@ export class HomePage{
 
   return products;
 }
+
 async addFirstProductToCart() {
    await this.homePageLocators.featuresItems.first().hover();
    await this.homePageLocators.addToCartBtn.first().click();
 }
 
-async addNthProductToCart(index) {
-     await this.homePageLocators.featuresItems.nth(index).hover();
-   await this.homePageLocators.addToCartBtn.nth(index).click();
-}
-  
 }

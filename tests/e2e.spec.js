@@ -27,7 +27,7 @@ test('Purchase product as registered and logged in user', async({loginSignUpPage
         await loginSignUpPage.login(defaultUser.email, defaultPassword);
         await homePage.goToProducts();
         await productsPage.searchForProduct(searchedProduct);
-       await homePage.clickOnViewProduct(1);
+       await productsPage.clickOnViewProduct(1);
        await productInfoPage.clickAddToCart();
         await homePage.clickOnViewCart();
         await cartPage.clickOnProceedToCheckout();

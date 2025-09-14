@@ -68,7 +68,7 @@ test('As Guest user add product to cart from product info page', async () => {
         await homePage.goToProducts();
         await productsPage.searchForProduct(existingProduct);
         await productsPage.getAllFoundProducts();
-        await homePage.clickOnViewProduct(1);
+        await productsPage.clickOnViewProduct(1);
     });
 
     await test.step('View product details', async() => {

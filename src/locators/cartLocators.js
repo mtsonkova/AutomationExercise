@@ -1,6 +1,7 @@
 export const CartLocators = (page) => ({
 proceedToCheckoutBtn: page.locator('div.col-sm-6 a').first(),
 productsTable: page.locator('#cart_info_table'),
+cartProducts: page.locator('table tbody tr'),
 itemImage: page.locator('tbody td.cart_product a'),
 productName: page.locator('tbody td.cart_description h4 a'),
 productCategory: page.locator('tbody td.cart_description p'),

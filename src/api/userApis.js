@@ -1,41 +1,7 @@
 import {testUser, defaultPassword, defaultTitle, dateOfBirth, addressInformation} from '../utils/testData';
-import { generateRandomEmail } from '../utils/emailUtils';
 
 let url;
 let userData;
-
-export async function loginApi(request, userEmail) {
-    url = 'https://automationexercise.com/api/verifyLogin';
-   
-    userData = {
-        email: userEmail,
-        password: defaultPassword,
-    }
-  try {
-    const response = await request.post(url, {
-      form: userData
-    });
-
-    // Check status code
-    if (response.status() !== 200) {
-      throw new Error(`Expected status 200 but got ${response.status()}`);
-    }
-
-    const body = await response.text();
-    console.log('API Response:', body);
-
-    // Check message
-    if (!body.includes('User exists!')) {
-      throw new Error(`Unexpected response message: ${body}`);
-    }
-
-    return { success: true, message: body };
-
-  } catch (error) {
-    console.error('Login API failed:', error.message);
-    return { success: false, error: error.message };
-  }
-}
 
 export async function registerApi(request, userEmail) {
     url = 'https://automationexercise.com/api/createAccount',
